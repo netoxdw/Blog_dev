@@ -29,7 +29,7 @@ class Autor(models.Model):
         verbose_name_plural = 'Autores'
     
     def __str__(self) -> str:
-        return {self.nombres}, {self.apellidos}
+        return self.nombres
 
 
 
