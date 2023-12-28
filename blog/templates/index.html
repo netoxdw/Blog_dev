@@ -29,7 +29,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'index' %}">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'generales'%}">Generales</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'produccion'%}">Producción</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'yacimientos' %}">Yacimientos</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'perforacion' %}">Perforacion</a></li>
                     </ul>
@@ -54,7 +54,6 @@
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <!-- Post preview-->
-                    {% block content %}
                     {% if posts_aprobados %}
                     {% for post in posts_aprobados %}
 
@@ -77,7 +76,6 @@
                     {% else %}
                     <h3>No hay posts</h3>
                     {% endif%}
-                    {% endblock %}
 
 
                     <!-- Divider-->

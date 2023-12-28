@@ -1,9 +1,9 @@
 from django.urls import path
-from .views import IndexView, GeneralesView, YacimientosView, PerforacionView
+from .views import IndexView, YacimientosView, PerforacionView, ProduccionView
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
-    path('general', GeneralesView.as_view(), name='generales'),
+    path('produccion', ProduccionView.as_view(), name='produccion'),
     path('yacimiento', YacimientosView.as_view(), name='yacimientos'),
     path('perforacion', PerforacionView.as_view(), name='perforacion'),
 ]
