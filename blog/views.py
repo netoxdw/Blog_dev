@@ -4,3 +4,12 @@ from django.views.generic import TemplateView
 
 class IndexView(TemplateView):
     template_name = 'index.html'
+
+class GeneralesView(TemplateView):
+    template_name = 'generales.html'
+
+class YacimientosView(TemplateView):
+    template_name = 'yacimientos.html'
+
+class PerforacionView(TemplateView):
+    template_name = 'perforacion.html'
