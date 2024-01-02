@@ -2,7 +2,7 @@ from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.http import Http404
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import Post, Categoria
 # Create your views here.
 
@@ -45,4 +45,7 @@ class PerforacionView(ListView):
         return posts_generales
 
 
-
+class PostView(DetailView):
+    model =Post
+    template_name = 'post.html'
+    

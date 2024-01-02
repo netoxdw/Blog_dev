@@ -1,5 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.utils.text import slugify
 
 # Create your models here.
 class Categoria(models.Model):
@@ -35,7 +36,7 @@ class Autor(models.Model):
 
 class Post(models.Model):
     titulo = models.CharField('Titulo', max_length = 90, null = False, blank = False)
-    slug = models.CharField('Slug', max_length = 100, null = False, blank = False)
+    slug = models.SlugField('Slug', unique = True, null = True, blank = True)
     descripcion = models.CharField('Descripción', max_length = 110, null = False, blank = False)
     contenido = RichTextField('Contenido', null = False, blank = False)
     imagen = models.URLField('Imagen', null = False, blank = False)
@@ -43,6 +44,11 @@ class Post(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete = models.CASCADE)
     estado = models.BooleanField('Publicado/No publicado', default = True)
     fecha_creacion = models.DateField('Feacha de creación', auto_now = False, auto_now_add = True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.titulo)
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = 'Post'
