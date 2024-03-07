@@ -15,9 +15,9 @@ class IndexView(ListView):
     def get_queryset(self):
         posts_aprobados = Post.objects.filter(estado = True)
         query = self.request.GET.get('buscar')
+
         if query:
             normalized_query = unidecode(query)
-            
             posts_aprobados = posts_aprobados.filter(
                 Q(titulo__icontains=normalized_query) |  # Buscar en el campo 'titulo'
                 Q(categoria__nombre__icontains=normalized_query) |  # Buscar en el campo 'categoria'
